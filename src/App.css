@@ -1,0 +1,122 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Poppins", sans-serif !important;
+}
+
+html,
+body,
+#root,
+.App {
+    height: 100%;
+    background: #556270;
+    background: -webkit-linear-gradient(to top, #89b6a5, #c9eddc);
+    background: linear-gradient(to top, #89b6a5, #c9eddc);
+}
+
+.App {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto;
+    max-width: 800px;
+}
+
+table {
+    background-color: white;
+}
+
+td,
+th {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even) {
+    background-color: #dddddd;
+}
+
+.header {
+    background-color: rgb(18, 18, 36);
+    height: 10vh;
+    min-height: 10vh;
+    color: white;
+    width: 100%;
+    top: 0;
+    display: flex;
+    align-items: center;
+    z-index: 99;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.upload-button {
+    border: none;
+    font-size: inherit;
+    color: inherit;
+    background: none;
+    cursor: pointer;
+    padding: 25px 35px;
+    margin: 15px 25px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 700;
+    -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    transition: all 0.3s;
+    background: #34495e;
+    height: 50%;
+    color: #fff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.upload-button:hover {
+    background: #2c3e50;
+}
+
+.btn:active {
+    background: #2c3e50;
+    top: 2px;
+}
+
+.table-wrapper {
+    overflow-x: auto;
+}
+
+table {
+    width: 100%;
+}
+
+.label {
+    margin-left: auto;
+    margin-right: auto;
+    padding-top: 20px;
+}
+
+.error {
+    color: red;
+}
+
+.loader {
+    border: 8px solid #f3f3f3;
+    border-top: 8px solid rgb(18, 18, 36);
+    border-radius: 50%;
+    width: 70px;
+    height: 70px;
+    animation: spin 2s linear infinite;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 20px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}

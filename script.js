@@ -46,23 +46,26 @@ function getEmployeeData(inputFile) {
             db.serialize(() => {
               csvrow = csvrow.map((col) => col.trim());
 
-              /* csvrow[2] = new Date(Date.parse(csvrow[2]))
-                .toISOString()
-                .split("T")[0]; */
-
-              if (csvrow[3] === "NULL") {
-                csvrow[3] = new Date().toISOString().split("T")[0];
-              } else {
-                /* csvrow[3] = new Date(Date.parse(csvrow[3]))
+              try {
+                csvrow[2] = new Date(Date.parse(csvrow[2]))
                   .toISOString()
-                  .split("T")[0]; */
-              }
+                  .split("T")[0];
+
+                if (csvrow[3] === "NULL") {
+                  csvrow[3] = new Date().toISOString().split("T")[0];
+                } else {
+                  csvrow[3] = new Date(Date.parse(csvrow[3]))
+                    .toISOString()
+                    .split("T")[0];
+                }
+              } catch (error) {}
 
               db.run(
                 `INSERT INTO Employees(EmpID, ProjectID, DateFrom, DateTo) values(?, ?, ?, ?)`,
                 csvrow,
                 function (error) {
                   if (error) {
+                    console.log(csvrow);
                     reject(error);
                   }
                 }
